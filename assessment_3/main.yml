@@ -1,0 +1,25 @@
+- hosts: linux
+  tasks:
+    - name: install packages apt
+      yum:
+        name: apt
+        state: installed
+      ignore_errors: yes
+      when: ansible_os_family == "RedHat"
+    - name: install packages pip
+      yum:
+        name: pip
+        state: installed
+      ignore_errors: yes
+      when: ansible_os_family == "RedHat"
+    - name: install packages pip
+      apt:
+        name: pip
+        state: installed
+      ignore_errors: yes
+      when: ansible_os_family == "Debian"
+    - name: file operation
+      file:
+        path: /tmp/some_file
+        mode: '0644'
+        state: touch

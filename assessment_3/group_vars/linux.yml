@@ -1,0 +1,5 @@
+ansible_ssh_user: localuser
+ansible_become_pass: localpasswd
+ansible_ssh_pass: localpasswd
+
+ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
